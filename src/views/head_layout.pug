@@ -1,0 +1,65 @@
+//-
+  ztncui - ZeroTier network controller UI
+  Copyright (C) 2017-2021  Key Networks (https://key-networks.com)
+  Licensed under GPLv3 - see LICENSE for details.
+
+mixin nav_item(name, displayName, href)
+  li(class=((navigate && navigate.active === name) ? 'active' : ''))
+    a(href=href) #{displayName}
+
+mixin json_value(value)
+  - if ((!!value ) && (value.constructor == Object || value.constructor == Array))
+      code(style='white-space: pre;')= JSON.stringify(value, null, 2)
+  - else
+      code= value
+
+html(lang='en')
+ head
+   title= title
+   meta(charset='utf-8')
+   meta(name='viewport', content='width=device-width, initial-scale=1')
+   link(rel='stylesheet', href='/bscss/bootstrap.min.css')
+   link(rel='stylesheet', href='/stylesheets/style.css')
+   script(src='/jqjs/jquery.min.js')
+   script(src='/bsjs/bootstrap.min.js')
+   style.
+     body{
+        font-family: 'Lato', sans-serif;
+      }
+     nav.navbar {
+       background-color: #212121;
+       font-family: 'Open Sans', sans-serif;
+     }
+     nav.navbar li a {
+       color: #ffffff;
+     }
+     nav.navbar li a:hover {
+       color: #ffcc33;
+       background-color: #424242;
+     }
+     nav.navbar-nav {
+       text-align: right;
+     }
+     nav.navbar-nav > li > a {
+       color: black;
+     }
+ body
+   nav.navbar.navbar-inverse.navbar-fixed-top(style="background-color:#8db8eb; font-color:black;")
+       .container-fluid
+         .navbar-header
+           button.navbar-toggle(type='button' data-toggle='collapse' data-target='#BarNav')
+           a.navbar-brand(href='https://www.zerotier.com' target='_blank')
+             img(src='https://drive.google.com/uc?export=view&id=1fxyYQZqF2IWViMogeSB-nSNffkTU2jwu'  height='25px' width='25px' style='display: inline')
+             |  Open Controller For ZEROTIER
+         .collapse.navbar-collapse(id='BarNav')
+           ul.nav.navbar-nav.navbar-right
+             block nav_items
+             li
+               block nav_login
+                 a(href='/logout')
+                   span.glyphicon.glyphicon-log-out
+                   |  Logout
+   block body_content
+
+
+

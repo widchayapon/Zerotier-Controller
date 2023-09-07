@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Bar Example</title>
+    <style>
+        /* สไตล์ของแถบหลอดโหลด */
+        
+        .main {
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            margin-left: 600px;
+            margin-top: 400px;
+        }
+        
+        .progress-bar {
+            width: 600px;
+            height: 30px;
+            background-color: #f1f1f1;
+            margin: 0 auto;
+            align-items: center;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background-color: black;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            width: 0%;
+            align-items: center;
+        }
+        /* สไตล์ของข้อความสถานะ */
+        
+        #statusText {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .arrow {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            margin-left: -10px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="progress-bar">
+            <div class="progress-bar-fill" id="progressBarFill">0%</div>
+            <div class="arrow"></div>
+
+        </div>
+        <div id="statusText">Loading performance...</div>
+    </div>
+
+    <script>
+        // โค้ด JavaScript เพื่อให้แถบหลอดโหลดขึ้นตามค่าที่กำหนด
+        let progress = 0;
+        const progressBarFill = document.getElementById('progressBarFill');
+        const statusText = document.getElementById('statusText');
+
+
+        function updateProgress() {
+            progressBarFill.style.width = progress + '%';
+            progressBarFill.textContent = progress + '%';
+
+
+            if (progress < 100) {
+                progress += 1; // เพิ่มค่า progress ทีละ 1 เมื่อยังไม่ถึง 100%
+                setTimeout(updateProgress, 50); // เรียกใช้ฟังก์ชันนี้อีกครั้งหลังจาก 50 มิลลิวินาที
+            } else {
+                statusText.textContent = 'Load Complete'; // เมื่อถึง 100% แสดงข้อความนี้
+            }
+        }
+
+
+        updateProgress(); // เริ่มการโหลดเมื่อเปิดหน้าเว็บ
+    </script>
+</body>
+
+</html>

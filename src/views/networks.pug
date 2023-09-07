@@ -1,0 +1,126 @@
+
+extends controller_layout
+
+block content
+  meta(charset="utf-8")
+  link(href="css/style.css", type="text/css", rel="stylesheet")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  style.
+     body{
+        font-family: 'Lato', sans-serif;
+      }
+    table{
+     margin-top:20px;
+     //- box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+     border-collapse: separate;
+     border-spacing: 0 10px;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+     width: 100%;
+     background-color: #fff;
+    }
+    th {
+      font-weight: bold;
+      text-align: left;
+      background-color:  #8db8eb ;
+      color: #333;
+      padding: 10px;
+    }
+    td{
+      color:#3498db;
+      padding: 10px;
+      text-align: left;
+    }
+    td a {
+      color: #3498db;
+    }
+    td a:hover {
+      color: #2c3e50;
+    }
+    .delete-btn {
+      display: inline-block;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .delete-btn i {
+      color: #e74c3c;
+    }
+    h1{
+      margin-top: 50px;
+      color: gray;
+      font-size:40px;
+      text-shadow: 2px 2px #000000;
+    }
+    button{
+      border-radius: 15px;
+      width:250px;
+      height:45px;
+      background-color:  #8db8eb ;
+    }
+    a{
+      font-size:19px;
+      margin-left:5px;
+      color:black;
+    }
+    
+     
+  h1 Manage Networks 
+  
+  //button
+  .button-link
+    button.button
+      i.glyphicon.glyphicon-plus
+      a(href="/controller/network/create") Create Network
+  //check error
+  if error
+    b #{error}
+  else
+    body 
+      table.table.table-responsive.table-striped
+        tr
+          th(width='20%')
+            | Network name
+          th(width='20%')
+            | Network ID
+          th(width='20%')
+            = 'Members'
+          th(width='10%')
+            = 'Setup'
+          th(width='10%')
+            = 'Detail'
+          th(width='10%')
+            = 'Edit'
+          th(width='10%')
+            = 'Delete'
+
+        each network in networks
+          - const nwurl = '/controller/network/' + network.nwid;
+          tr
+            td
+              a(href="/dashboard") #{network.name}
+              //- a(href=nwurl) #{network.name}
+            td
+               = network.nwid
+            td
+               a(href=nwurl + "#members") 
+                i.glyphicon.glyphicon-user
+            //- td
+            //-   a(href=nwurl) detail
+            td
+              a(href=nwurl + '/easy') 
+                i.glyphicon.glyphicon-wrench
+            td
+               a(href=nwurl + '/detail') 
+                i.glyphicon.glyphicon-zoom-in
+            td 
+                a(href=nwurl) 
+                  i.glyphicon.glyphicon-edit
+            td 
+              a(href=nwurl + '/delete')
+                i.glyphicon.glyphicon-trash
+
+        //- else
+        //-   .alert.alert-info
+        //-     strong There are no networks on this network controller - click "Add network" above to create a new network.
+    

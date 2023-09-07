@@ -1,0 +1,186 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title Login
+style.
+  body{
+        background: url(https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?cs=srgb&dl=pexels-manuel-geissinger-325229.jpg&fm=jpg) no-repeat center fixed;
+        background-size: cover;
+      }
+  div.top{
+        display: flex;
+        position: absolute;
+        left: 25px;
+        top: 10px;
+  
+      }
+  img.png-top{
+        width: 50px;
+        height: auto;
+      }
+  p.top{
+        color:white;
+        margin-left:10px;
+        font-size: 15px;
+      }
+   div.text{
+        position: absolute;
+        top: 35%;
+        left: 5%;
+        flex-wrap: wrap;
+      }
+  p.first{
+        font-size: 55px;
+        letter-spacing : 5px;
+        color:white;
+      }
+  a.learn{
+        color: white;
+        margin-left: 650px;
+        margin-top: 30px;
+        font-size: 20px;
+      }
+  .card {
+     
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 500px;
+          width: 700px;
+          flex-direction: column;
+          gap: 35px;
+          background: #e3e3e3;
+          opacity: 50%;
+          
+          border-radius: 8px;
+        }
+  
+  
+        .inputBox {
+          position: relative;
+          width: 300px;
+        }
+  
+  
+        .inputuser input {
+          width: 100%;
+          padding: 10px;
+          outline: none;
+          border: none;
+          color: #000;
+          margin-top: 30px;
+          font-size: 1em;
+          background: transparent;
+          border-left: 2px solid #000;
+          border-bottom: 2px solid #000;
+          transition: 0.1s;
+          border-bottom-left-radius: 8px;
+        }
+         .inputpass input {
+          width: 100%;
+          padding: 10px;
+          outline: none;
+          border: none;
+          color: #000;
+          margin-top: 30px;
+          font-size: 1em;
+          background: transparent;
+          border-left: 2px solid #000;
+          border-bottom: 2px solid #000;
+          transition: 0.1s;
+          border-bottom-left-radius: 8px;
+        }
+        .login {
+          color: #000;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          display: block;
+          font-weight: bold;
+          text-align: center;
+          font-size: 30px;
+          position: absolute;
+          top: 10%;
+          right: 40%;
+        }
+  
+  
+     
+  
+        .inputBox input:valid~span,
+        .inputBox input:focus~span {
+          transform: translateX(113px) translateY(-15px);
+          font-size: 0.8em;
+          padding: 5px 10px;
+          background: #000;
+          letter-spacing: 0.2em;
+          color: #fff;
+          border: 2px;
+        }
+  
+  
+        .inputBox input:valid,
+        .inputBox input:focus {
+          border: 2px solid #000;
+          border-radius: 8px;
+        }
+  
+  
+        .enter {
+          margin-top: 30px;
+          height: 45px;
+          width: 200px;
+          border-radius: 5px;
+          border: 2px solid #000;
+          cursor: pointer;
+          background-color: transparent;
+          transition: 0.5s;
+          text-transform: uppercase;
+          font-size: 20px;
+          letter-spacing: 2px;
+          margin-bottom: 1em;
+          position: absolute;
+          top: 65%;
+          right: 35%;
+        }
+  
+  
+        .enter:hover {
+          background-color: rgb(0, 0, 0);
+          color: white;
+        }
+  
+        a{
+          text-decoration: none;
+          color: black;
+        }
+  
+  
+        .container{
+          position: fixed;
+          top: 20%;
+          right: 10%;
+        }
+body 
+  .top
+    img.png-top(src='https://drive.google.com/uc?export=view&id=1fxyYQZqF2IWViMogeSB-nSNffkTU2jwu')
+    p.top Open Controller For ZEROTIER
+  .text
+    b
+      p.first Securely, Connect
+        br
+        | Any Device, Anywhere.
+        br
+        | 
+        a.learn(href="https://www.zerotier.com/") learn more
+  .container
+    .card
+      form.form(method='POST' action='')
+        a.login Log in
+        .inputuser
+          input#username.form-control(type='text' name='username')
+          span Username
+        .inputpass
+          input#password.form-control(type='password' name='password')
+          span Password
+        button.enter Login
+  

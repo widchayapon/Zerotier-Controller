@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .form {
+                position: absolute;
+                left: 30%;
+                top: 30%;
+                width: 500px;
+                height: 300px;
+                background-color: white;
+                padding: 3.125em;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+            }
+
+
+            .signup {
+                color: rgb(77, 75, 75);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                display: block;
+                font-weight: bold;
+                font-size: 30px;
+                margin-bottom: 0.5em;
+            }
+
+
+            .form--input {
+                width: 100%;
+                margin-bottom: 1.25em;
+                height: 30px;
+                border-radius: 5px;
+                border: 1px solid gray;
+                padding: 0.8em;
+                font-family: 'Inter', sans-serif;
+                outline: none;
+            }
+
+
+            .form--input:focus {
+                border: 1px solid #639;
+                outline: none;
+            }
+
+
+            .form--submit {
+                width: 50%;
+                padding: 0.625em;
+                border-radius: 5px;
+                color: white;
+                background-color: rgb(34, 30, 156);
+                border: 1px dashed rgb(34, 30, 156);
+                cursor: pointer;
+            }
+
+
+            .form--submit:hover {
+                color: rgb(34, 30, 156);
+                background-color: white;
+                border: 1px dashed rgb(34, 30, 156);
+                cursor: pointer;
+                transition: 0.5s;
+                
+               
+            }
+    </style>
+    </head>
+    <body>
+        <form class="form">
+            <span class="signup">Sign Up</span>
+            <input type="text" placeholder="Username" class="form--input">
+            <input type="password" placeholder="Password" class="form--input">
+            <input type="password" placeholder="Confirm password"
+                class="form--input">
+            <button class="form--submit">
+                Sign up
+            </button>
+            <p class="color:black;">Username</p>
+            
+        </form>
+        <script>
+            alert("Hello! you need to creat=");
+        </script>
+    </body>
+</html>
+

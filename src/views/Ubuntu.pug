@@ -1,0 +1,108 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Ubuntu
+        style.
+            p{
+                display:inline;
+            }
+            p.green{
+                color:green;
+            }
+    body 
+        p Number of Cpu : 
+        p= (data.core.result[0].value_min/1)
+        br
+        P The CPU utilization expressed in %.
+        br
+        p last 
+        p= (data.last.result[0].lastvalue/1).toFixed(2)+" % "
+        br
+        p min 
+        p= (data.cpuuti.result[0].value_min/1).toFixed(2)+" % "
+        br 
+        p avg 
+        p= (data.cpuuti.result[0].value_avg/1).toFixed(2)+" % "
+        br 
+        p max 
+        p= (data.cpuuti.result[0].value_max/1).toFixed(2)+" % "
+        br 
+        P Load average 1m avg
+        br
+        p last 
+        p= (data.last.result[3].lastvalue/1).toFixed(2)
+        br
+        p min 
+        p= (data.x1.result[0].value_min/1).toFixed(2)
+        br
+        p avg 
+        p= (data.x1.result[0].value_avg/1).toFixed(2)
+        br
+        p max 
+        p= (data.x1.result[0].value_max/1).toFixed(2)
+        br
+        P Load average 5m avg
+        br
+        p last 
+        p= (data.last.result[2].lastvalue/1).toFixed(2)
+        br
+        p min 
+        p= (data.x5.result[0].value_min/1).toFixed(2)
+        br
+        p avg 
+        p= (data.x5.result[0].value_avg/1).toFixed(2)
+        br
+        p max 
+        p= (data.x5.result[0].value_max/1).toFixed(2)
+        br
+        P Load average 15m avg
+        br
+        p last 
+        p= (data.last.result[1].lastvalue/1).toFixed(2)
+        br
+        p min 
+        p= (data.x15.result[0].value_min/1).toFixed(2)
+        br
+        p avg 
+        p= (data.x15.result[0].value_avg/1).toFixed(2)
+        br
+        p max 
+        p= (data.x15.result[0].value_max/1).toFixed(2)
+        br
+        p Availble Memory in %
+        br
+        p= (data.memoryavi.result[0].value_min/1).toFixed(2)+" % "
+        br
+        p Availble Memory
+        br
+        p= (data.memoryav.result[0].value_avg/1024/1024/1024).toFixed(2)+" GB "
+        br
+        p 
+        p Total Memory
+        br 
+        p= (data.totalmemory.result[0].value_avg/1024/1024/1024).toFixed(2)+" GB "
+        br
+        p Total Space 
+        br
+        p= (data.totalspace.result[0].value_min/1024/1024/1024).toFixed(2)+" GB "
+        br
+        p Free Swap Space 
+        br
+        p= (data.freeswap.result[0].value_min/1024/1024/1024).toFixed(2)+" GB "
+        br
+        p Space Utilization 
+        br
+        p= (data.spaceuti.result[0].value_min/1).toFixed(2)+" % "
+        br
+        p Used Space 
+        br
+        p= (data.usedspace.result[0].value_min/1024/1024/1024).toFixed(2)+" GB "
+        br
+        p Total Space 
+        br
+        p= (data.totalspace.result[0].value_min/1024/1024/1024).toFixed(2)+" GB "
+        br
+    

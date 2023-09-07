@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title ping 
+        style.
+            p{
+                display:inline;
+            }
+    body 
+    - for (var j = 0; j < result.length; ++j) {
+        p InputHost :
+        p=result[j].inputHost
+        br
+        p Host :
+        p=result[j].host
+        br
+        p Output :
+        p=result[j].output
+        br
+        p Time :
+        p=result[j].time
+        br
+        p Min :
+        p=result[j].min
+        br
+        p Max
+        p=result[j].max
+        br
+        p Avg :
+        p=result[j].avg
+        hr
+    - }
+    
+    

@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Iperf
+        style.
+            p{
+                display:inline;
+            }
+        
+    body 
+        p Connecting to host 
+        p=data[10].Host 
+        p , port 
+        p=data[10].Porthost
+        br
+        p local 
+        p=data[11].Local
+        p   port 
+        p=data[11].Portlocal
+        p   connected to 
+        p=data[10].Host
+        p   port 
+        p=data[10].Porthost
+        hr
+    - for (var i = 0; i < 10; ++i) {
+        p ID 
+        p=data[i].ID
+        br
+        p Interval 
+        p=data[i].Interval 
+        br
+        p Transfer
+        p=data[i].Transfer
+        br
+        p Bitrate
+        p=data[i].Bitrate
+        br
+        p Retr 
+        p=data[i].Retr
+        br
+        p Cwnd
+        p=data[i].Cwnd 
+        hr
+    -}

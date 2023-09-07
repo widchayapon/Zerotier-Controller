@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title DetailUbuntu
+        style.
+            p{
+                display:inline;
+            }
+    body 
+     - for (var i = 0; i < data.result.length; ++i) {
+        p Hostid : 
+        p= data.result[i].hostid
+        br
+        p Host : 
+        p= data.result[i].host
+        br
+        p Name : 
+        p= data.result[i].name
+        br
+        hr
+    - for (var j = 0; j < data.result[i].items.length; ++j) {
+        p Items 
+        br
+        p Itemsid :
+        p= data.result[i].items[j].itemid
+        br
+        p Name : 
+        p= data.result[i].items[j].name
+        br
+        p Value_type :
+        p= data.result[i].items[j].value_type
+        br
+        p Lastvalue :
+        p= data.result[i].items[j].lastvalue
+        br
+        - }
+    - }
+        

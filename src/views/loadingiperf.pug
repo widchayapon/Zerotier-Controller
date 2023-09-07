@@ -1,0 +1,80 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title Loading Bar Example
+    style.
+      /* สไตล์ของแถบหลอดโหลด */
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+  
+  
+      .progress-bar {
+        width: 600px;
+        height: 30px;
+        background-color: #f1f1f1;
+      }
+  
+  
+      .progress-bar-fill {
+        height: 100%;
+        background-color: black;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+        width: 0%;
+      }
+  
+  
+      /* สไตล์ของข้อความสถานะ */
+      #statusText {
+        text-align: center;
+        margin-top: 10px;
+      }
+      
+
+
+  body
+    .main
+      .progress-bar
+        .progress-bar-fill#progressBarFill 0%
+        .arrow
+        #statusText Loading performance...
+
+
+  script.
+    let progress = 0;
+    const progressBarFill = document.getElementById('progressBarFill');
+    const statusText = document.getElementById('statusText');
+
+
+    function updateProgress() {
+      progressBarFill.style.width = progress + '%';
+      progressBarFill.textContent = progress + '%';
+
+
+      if (progress < 100) {
+        progress += 1;
+        setTimeout(updateProgress, 50);
+      } else {
+        statusText.textContent = 'Load Complete';
+      }
+    }
+
+
+    updateProgress();
+
+
+    setTimeout(function() {
+      window.location.href = "/iperf";
+    }, 6000);
+
+
+
+
+

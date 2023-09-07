@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Windows
+        style.
+            p{
+                display:inline;
+            }
+            p.green{
+                color:green;
+            }
+    body 
+        p Number of Cores 
+        br
+        p= (data.core.result[0].value_avg)+" Core "
+        br
+        p The CPU utilization expressed in %
+        br
+        p last 
+        p= (data.cpulast.result[0].lastvalue/1).toFixed(2)+" % "
+        br
+        p min 
+        p= (data.cpuuti.result[0].value_min/1).toFixed(2)+" % "
+        br 
+        p avg 
+        p= (data.cpuuti.result[0].value_avg/1).toFixed(2)+" % "
+        br 
+        p max 
+        p= (data.cpuuti.result[0].value_max/1).toFixed(2)+" % "
+        br 
+        p Memory Utilization
+        br
+        p= (data.ramuti.result[0].value_avg/1).toFixed(2)+" % "
+        br
+        p Total Memory 
+        br
+        p= (data.totalram.result[0].value_min/1024/1024/1024).toFixed(2)+" GB "
+        br
+        p Used Memory
+        br
+        p= (data.usedram.result[0].value_min/1024/1024/1024).toFixed(2)+" GB "
+        br
+        p Free Swap
+        br
+        p= (data.freeswap.result[0].value_min/1024/1024/1024).toFixed(2)+" GB "
+        br
+        p Space Utilization
+        br
+        p= (data.spaceuti.result[0].value_avg/1).toFixed(2)+" % "
+        br
+        P Total Space 
+        br
+        p= (data.totalspace.result[0].value_min/1024/1024/1024).toFixed(2)+" GB "
+        br
+        p Used Space 
+        br
+        p= (data.usedspace.result[0].value_min/1024/1024/1024).toFixed(2)+" GB "
+        br
+        
+        

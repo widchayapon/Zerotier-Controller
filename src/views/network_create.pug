@@ -1,0 +1,114 @@
+//-
+  ztncui - ZeroTier network controller UI
+  Copyright (C) 2017-2021  Key Networks (https://key-networks.com)
+  Licensed under GPLv3 - see LICENSE for details.
+
+extends controller_layout
+
+block content
+  .row
+
+
+
+  if error
+     b #{error}
+  else
+    meta(charset="utf-8")
+    link(rel="stylesheet", href="css/style.css")
+    link(href="https://fonts.googleapis.com/css?family=Lato:400,700", rel="stylesheet", type="text/css")
+    style.
+     body {
+          background: url(https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?cs=srgb&dl=pexels-manuel-geissinger-325229.jpg&fm=jpg) no-repeat center fixed;
+          background-size: cover;
+          font-family: 'Lato', sans-serif;
+          color: #FDFCFB;
+          text-align: center;
+        }
+  
+  
+        form {
+          width: 800px;
+          margin: 17% auto;
+        }
+  
+  
+        .header {
+          font-size: 30px;
+          padding-top : 100px;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+        }
+  
+  
+        .description {
+          font-size: 25px;
+          letter-spacing: 1px;
+          line-height: 1.3em;
+          margin: -2px 0 45px;
+        }
+  
+  
+        .input {
+          display: flex;
+          align-items: center;
+        }
+  
+  
+        .button {
+          height: 44px;
+          border: none;
+        }
+  
+  
+        #name {
+          width: 70%;
+          height: 50px;
+          background: #FDFCFB;
+          font-family: inherit;
+          color: #737373;
+          letter-spacing: 1px;
+          text-indent: 5%;
+          border-radius: 5px 0 0 5px;
+        }
+  
+  
+        #submit {
+          width: 25%;
+          height: 50px;
+          background:  #2e86c1 ;
+          font-family: inherit;
+          font-weight: bold;
+          color: inherit;
+          letter-spacing: 1px;
+          border-radius: 0 5px 5px 0;
+          cursor: pointer;
+          transition: background .3s ease-in-out;
+        }
+  
+  
+        #submit:hover {
+          background: #f1c40f;
+        }
+  
+  
+        input:focus {
+          outline: none;
+          outline: 2px solid #E86C8D;
+          box-shadow: 0 0 2px #E86C8D;
+        }
+
+    form(method='POST' action='')
+      .header
+        p Create a network
+      .description
+        p.
+          Please enter the name you want to create a network   
+      .input
+        input#name.form-control(type='text' name='name' placeholder='Enter your new network...' value=(undefined===name ? '' : name.name))
+        input.button#submit(type="submit", value="Submit")
+        if errors
+          .row
+            .col-sm-12
+              ul
+                for err in errors
+                  li!= err.msg

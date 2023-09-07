@@ -1,0 +1,104 @@
+extends users_layout
+
+block users_content
+  meta(charset="utf-8")
+  link(href="css/style.css", type="text/css", rel="stylesheet")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  style.
+    body{
+     background-color: #f1f1f1;
+     background-size: cover;
+     font-family: 'Lato', sans-serif;
+     
+    }
+
+    table {
+      margin-top: 10px;
+      border-collapse: collapse;
+      width: 100%;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+      font-size: 16px;
+    }
+    table th {
+      background-color:  #8db8eb ;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      text-align: center ;
+      
+
+    }
+    table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    table tr:nth-child(even) {
+      background-color: #f2f2f2;
+      text-align: center;
+
+    }
+    table tr:hover {
+      background-color: #ddd;
+    }
+    h1 {
+
+      color: gray;
+      text-shadow: 2px 2px #000000;
+
+    }
+    i.lock {
+      margin-left: 20px;
+      color: #3498db;
+    }
+    i.trash {
+      margin-left: 10px;
+      color: #e74c3c;
+    }
+    p {
+      color: #3498db;
+      margin: 0;
+    }
+    .alert {
+      font-weight: bold;
+      color: red;
+    }
+    button{
+      border-radius: 15px;
+      width:250px;
+      height:45px;
+      background-color:  #8db8eb ;
+    }
+  
+
+  body 
+    h1 List of All Users  
+    .button-link
+     button.button
+      a(href="/users/create" ) + Create User
+    table.table.table-responsive.table-striped.table-hover
+      each user in users
+        tr 
+          th(width='15%')
+            | Username 
+          th(width='50%')
+            | Set Password
+          th(width='5%')
+            | Delete
+        tr
+          td(width='15%')
+            p #{user.name}    
+          td(width='50%')
+            a(href='/users/' + user.name + '/password')   
+              i.lock.glyphicon.glyphicon-lock
+              
+          td(width='5%')
+            a(href='/users/' + user.name + '/delete')
+              i.trash.glyphicon.glyphicon-trash
+
+
+      else
+        .alert.alert-info
+          strong There are no users on this system
+    script.
+      alert("This page will show list of all members, you can delete, edit.");
+

@@ -1,0 +1,49 @@
+
+
+extends network_layout
+
+//- Don't display that title
+block title
+//- Replace the network title with the editable one
+block network_title
+  h1 List of Node
+  h3
+    | Name : 
+    a#change-name
+      span#name= network.name
+      
+    <br><br>
+    |  
+    p Network ID : (#{network.nwid}):
+  
+
+block net_content
+   
+  - const nwurl = '/controller/network/' + network.nwid;
+
+  
+  if (members !== undefined)
+    script.
+      $(function() {
+        const url = "#{nwurl}/members";
+        $('.authCheck').on('click', function() {
+          $.post(url, {'id': this.value, 'auth': this.checked});
+        });
+        $('.bridgeCheck').on('click', function() {
+          $.post(url, {'id': this.value, 'activeBridge': this.checked});
+        });
+        $('.text').on('change', function() {
+          $.post(url, {'id': this.name, 'name': this.value});
+        });
+      });
+
+
+  h3#detail Detail for network
+  <br>
+  each value, key in network
+    .row(style='margin: 5px 0;')
+      .col-sm-2
+        a(href= network.nwid + '/' + key) #{key}:
+      .col-sm-10
+        +json_value(value)
+
